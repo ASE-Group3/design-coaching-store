@@ -4,6 +4,8 @@ import {
   HeroSection,
   FeaturesList,
   ProductsList,
+  AboutUs,
+  ContactUs,
 } from "./components";
 
 const App = () => {
@@ -14,6 +16,8 @@ const App = () => {
       <HeroSection />
       <FeaturesList />
       <ProductsList />
+      <AboutUs />
+      <ContactUs />
     </div>
   );
 };

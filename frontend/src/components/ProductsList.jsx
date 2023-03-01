@@ -44,8 +44,8 @@ const Products = ({ productName, productImage }) => {
 
 const ProductsList = () => {
   return (
-    <div className="mt-32 mb-10 flex flex-col items-center">
-      <p className="mb-10 border-b-4 border-black w-fit font-bold text-2xl">
+    <div className="my-32 flex flex-col items-center">
+      <p className="mb-10 uppercase text-orange-500 w-fit font-extrabold text-2xl">
         Our Products
       </p>
 

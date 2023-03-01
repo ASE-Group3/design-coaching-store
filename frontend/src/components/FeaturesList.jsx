@@ -1,4 +1,3 @@
-import { Truck, Wallet, Users } from "lucide-react";
 import * as icons from "lucide-react";
 
 const featuresData = [
