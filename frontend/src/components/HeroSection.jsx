@@ -2,17 +2,25 @@ import HeroImage from "../assets/hero-image.svg";
 
 const HeroSection = () => {
   return (
-    <div className="my-20 grid grid-cols-2 items-center">
-      <div className="px-10 py-5">
-        <p className="font-bold text-4xl">TOP SALE</p>
-        <p className="text-orange-500 my-4">Discount 20% for all new users!</p>
-        <button className="bg-orange-500 rounded-full p-2 w-60 text-white">
-          Discover more
-        </button>
+    <div className="my-10 flex items-center justify-center gap-x-20">
+      <div>
+        <img src={HeroImage} alt="hero" className="rounded-xl" />
       </div>
 
       <div>
-        <img src={HeroImage} alt="hero" className="w-[90%] h-[90%]" />
+        <p className="font-bold text-4xl text-orange-500">Boost Your Style!</p>
+        <p className="my-4 max-w-sm">
+          Our cosmetics and fabrics shop offers a wide range of high-quality
+          products to cater to all your beauty and textile needs. We provide a
+          diverse selection of cosmetics, including skincare, makeup, and
+          fragrances, to enhance your natural beauty and help you feel confident
+          and glamorous every day. Our fabrics come in a variety of colors,
+          patterns, and textures, allowing you to create your unique style and
+          express your creativity.
+        </p>
+        <button className="bg-orange-500 rounded-md p-2 w-60 text-white">
+          Discover more
+        </button>
       </div>
     </div>
   );

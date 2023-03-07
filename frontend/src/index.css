@@ -11,3 +11,7 @@ body {
 span {
   display: inline-block;
 }
+
+.main-background {
+  background: radial-gradient(50% 50% at 50% 50%, #fce8df 0%, #f5e2db 100%);
+}

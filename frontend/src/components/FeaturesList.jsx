@@ -21,7 +21,7 @@ const featuresData = [
   },
 ];
 
-const Icon = ({ name, color, size }) => {
+export const CustomIcon = ({ name, color, size }) => {
   const LucideIcon = icons[name];
 
   return <LucideIcon color={color} size={size} />;
@@ -29,11 +29,11 @@ const Icon = ({ name, color, size }) => {
 
 const Feature = ({ icon, label, body }) => {
   return (
-    <div className="flex gap-x-5 items-center justify-center">
-      <Icon name={icon} color="black" size={30} />
+    <div className="flex gap-x-5 items-center justify-center bg-white bg-opacity-40 rounded-md p-5">
+      <CustomIcon name={icon} color="black" size={30} />
       <div>
         <p className="text-orange-500 font-bold text-lg">{label}</p>
-        <p className="w-[70%] mt-1">{body}</p>
+        <p className="max-w-sm mt-1">{body}</p>
       </div>
     </div>
   );
@@ -41,7 +41,7 @@ const Feature = ({ icon, label, body }) => {
 
 const FeaturesList = () => {
   return (
-    <div className="px-10 py-5 my-20 flex justify-between items-center">
+    <div className="px-10 py-5 my-20 flex gap-x-20 justify-between items-center">
       {featuresData.map((data) => (
         <Feature key={data.id} {...data} />
       ))}

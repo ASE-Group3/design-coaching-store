@@ -1,23 +1,21 @@
 import {
-  UpperNavBar,
-  MainNav,
+  NavBar,
   HeroSection,
   FeaturesList,
-  ProductsList,
-  AboutUs,
-  ContactUs,
+  RecommendedItems,
+  WhyUs,
+  Reviews,
 } from "./components";
 
 const App = () => {
   return (
-    <div>
-      <UpperNavBar />
-      <MainNav />
+    <div className="main-background">
+      <NavBar />
       <HeroSection />
       <FeaturesList />
-      <ProductsList />
-      <AboutUs />
-      <ContactUs />
+      <RecommendedItems />
+      <WhyUs />
+      <Reviews />
     </div>
   );
 };

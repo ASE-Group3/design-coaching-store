@@ -1,17 +1,8 @@
-import UpperNavBar from "./UpperNavBar";
-import MainNav from "./MainNav";
+import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import FeaturesList from "./FeaturesList";
-import ProductsList from "./ProductsList";
-import AboutUs from "./AboutUs";
-import ContactUs from "./ContactUs";
+import RecommendedItems from "./RecommendedItems";
+import WhyUs from "./WhyUs";
+import Reviews from "./Reviews";
 
-export {
-  UpperNavBar,
-  MainNav,
-  HeroSection,
-  FeaturesList,
-  ProductsList,
-  AboutUs,
-  ContactUs,
-};
+export { NavBar, HeroSection, FeaturesList, RecommendedItems, WhyUs, Reviews };
