@@ -89,12 +89,12 @@ const RecommendedItems = () => {
           Recommended Items
         </p>
 
-        <div className="border-2 border-orange-500 p-2 rounded-full">
+        <div className="border-2 border-orange-500 p-2 rounded-full max-sm:hidden">
           <ArrowRight className="w-5 h-5 text-orange-500" />
         </div>
       </div>
 
-      <div className="grid grid-cols-5 px-10 gap-5">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 px-10 gap-5">
         {dummyData.map((product) => (
           <Products key={product.id} {...product} />
         ))}

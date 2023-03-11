@@ -15,3 +15,12 @@ span {
 .main-background {
   background: radial-gradient(50% 50% at 50% 50%, #fce8df 0%, #f5e2db 100%);
 }
+
+:root {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  display: block;
+}

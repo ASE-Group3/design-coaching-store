@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useState } from "react";
 import UserAvatar from "../assets/user-avatar.svg";
 
 const reviewsData = [
@@ -20,8 +22,12 @@ const reviewsData = [
 ];
 
 const ReviewCard = ({ body }) => {
+  // const getUsersWithAxios = async () => {
+  //   await axios
+  // }
+
   return (
-    <div className="flex flex-col gap-5 bg-white bg-opacity-40 rounded-md p-5 mb-10">
+    <div className="w-[100%] flex flex-col gap-5 bg-white bg-opacity-40 rounded-md p-5 mb-5 md:mb-2">
       <img src={UserAvatar} alt="avatar" className="w-10 h-10" />
       <p className="max-w-md mt-1">{body}</p>
     </div>
@@ -35,7 +41,7 @@ const Reviews = () => {
         Customer Reviews
       </p>
 
-      <div className="px-10 flex gap-5 justify-between items-center">
+      <div className="grid px-10 md:grid-cols-2 md:gap-5 xl:grid-cols-4 justify-between items-center">
         {reviewsData.map((data) => (
           <ReviewCard key={data.id} {...data} />
         ))}

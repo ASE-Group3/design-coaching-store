@@ -29,11 +29,11 @@ export const CustomIcon = ({ name, color, size }) => {
 
 const Feature = ({ icon, label, body }) => {
   return (
-    <div className="flex gap-x-5 items-center justify-center bg-white bg-opacity-40 rounded-md p-5">
+    <div className="grid gap-2 bg-white bg-opacity-40 rounded-md p-5">
       <CustomIcon name={icon} color="black" size={30} />
       <div>
         <p className="text-orange-500 font-bold text-lg">{label}</p>
-        <p className="max-w-sm mt-1">{body}</p>
+        <p className="max-w-md mt-2">{body}</p>
       </div>
     </div>
   );
@@ -41,7 +41,7 @@ const Feature = ({ icon, label, body }) => {
 
 const FeaturesList = () => {
   return (
-    <div className="px-10 py-5 my-20 flex gap-x-20 justify-between items-center">
+    <div className="grid gap-5 px-10 py-5 my-20 md:flex">
       {featuresData.map((data) => (
         <Feature key={data.id} {...data} />
       ))}
