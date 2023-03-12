@@ -1,4 +1,5 @@
 import WhyUsImage from "../assets/why-us.svg";
+import { useAuthStore } from "../store";
 
 const WhyUs = () => {
   return (

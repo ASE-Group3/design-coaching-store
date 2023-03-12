@@ -5,7 +5,7 @@ import "./index.css";
 
 //pages
 import App from "./App";
-import { LoginPage } from "./pages";
+import { LoginPage, SignupPage } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <div>register</div>,
+    element: <SignupPage />,
   },
   {
     path: "/forgotpassword",

@@ -1,24 +1,54 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Lock, Mail, Loader2 } from "lucide-react";
-import { API_URL } from "../hooks/config";
 import API from "../hooks/useAPI";
+import { useAuthStore } from "../store";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Input } from "../ui";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const successToast = () => {
+    toast.success("Successfully logged in! 😁", {
+      position: toast.POSITION.TOP_RIGHT,
+      closeButton: true,
+    });
+  };
+
+  const errorToast = () => {
+    toast.error("Incorrect credentials 🤔", {
+      position: toast.POSITION.TOP_RIGHT,
+      closeButton: true,
+    });
+  };
+
   const [loginUser, { data, loading }] = API(
-    { path: "/users/login", method: "POST" },
+    { path: "/api/users/login", method: "POST" },
     {
       onCompleted: async (d) => {
-        console.log(d.data);
-        console.log("SUCCESSFUL");
-
         //TODO: save user metadata to relevant state manager & add a toast
+        successToast();
+        useAuthStore.setState({
+          currentUser: {
+            details: {
+              _id: d.data.details._id,
+              fullname: d.data.details.fullname,
+              username: d.data.details.username,
+              email: d.data.details.email,
+              location: d.data.details.location,
+              phone: d.data.details.phone,
+              bio: d.data.details.bio,
+              pic: "https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png",
+            },
+          },
+        });
       },
       onError: (e) => {
+        errorToast();
         console.log(e.message);
       },
     }
@@ -26,34 +56,30 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (data) {
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     }
     return;
   }, [data]);
 
   return (
-    <div className="main-background flex flex-col gap-5 w-screen h-screen items-center justify-center">
+    <div className="flex flex-col gap-5 w-screen h-screen items-center justify-center">
       <p className="text-orange-500 text-4xl font-bold">LOGIN</p>
 
       <div className="flex flex-col gap-5">
-        <div className="flex gap-5 border w-[100%] mx-auto md:w-80 h-12 rounded-md items-center bg-white p-6">
-          <Mail color="black" size={20} />
-          <input
-            type="text"
-            placeholder="Enter your email here"
-            onChange={(e) => setEmail(e.target.value)}
-            className="outline-none w-[100%]"
-          />
-        </div>
-        <div className="flex gap-5 border w-[100%] mx-auto md:w-80 h-12 rounded-md items-center bg-white p-6">
-          <Lock color="black" size={20} />
-          <input
-            type="password"
-            placeholder="Enter your password here"
-            onChange={(e) => setPassword(e.target.value)}
-            className="outline-none w-[100%]"
-          />
-        </div>
+        <Input
+          iconName="Mail"
+          type="text"
+          placeholder="Enter your email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          iconName="Lock"
+          type="password"
+          placeholder="Enter your password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <Link to="/forgotpassword" className="-mt-2 font-bold text-red-500">
           Forgot password?
         </Link>
@@ -77,6 +103,11 @@ const LoginPage = () => {
           "Login"
         )}
       </button>
+      <Link to="/signup" className="-mt-2 text-gray-500">
+        If you haven't registered yet,{" "}
+        <span className="text-orange-500 underline">register now</span>
+      </Link>
+      <ToastContainer />
     </div>
   );
 };
